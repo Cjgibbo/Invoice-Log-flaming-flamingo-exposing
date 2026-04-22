@@ -26,7 +26,7 @@
     padding: 40px 20px;
   }
 
-  /* SCREEN-ONLY CONTROLS */
+  /* CONTROLS */
   .controls {
     max-width: 820px;
     margin: 0 auto 24px;
@@ -36,7 +36,7 @@
     align-items: center;
   }
 
-  .controls select, .controls input {
+  .controls select {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 11px;
@@ -48,10 +48,6 @@
     color: var(--ink);
     outline: none;
     cursor: pointer;
-  }
-
-  .controls select:focus, .controls input:focus {
-    border-color: var(--accent);
   }
 
   .btn {
@@ -67,17 +63,8 @@
   }
 
   .btn:hover { opacity: 0.8; }
-
-  .btn-print {
-    background: var(--ink);
-    color: var(--bg);
-  }
-
-  .btn-add {
-    background: transparent;
-    border: 1px solid var(--rule);
-    color: var(--gray);
-  }
+  .btn-print { background: var(--ink); color: var(--bg); }
+  .btn-add   { background: transparent; border: 1px solid var(--rule); color: var(--gray); }
 
   .btn-remove {
     background: transparent;
@@ -88,8 +75,23 @@
     cursor: pointer;
     line-height: 1;
   }
-
   .btn-remove:hover { color: #c00; }
+
+  /* TOAST */
+  #toast {
+    display: none;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    z-index: 999;
+  }
 
   /* INVOICE PAGE */
   .invoice-page {
@@ -102,14 +104,11 @@
     min-height: 1000px;
   }
 
-  /* Corner accent */
   .invoice-page::after {
     content: '';
     position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 160px;
-    height: 160px;
+    top: -60px; right: -60px;
+    width: 160px; height: 160px;
     border: 1px solid var(--accent);
     border-radius: 50%;
     opacity: 0.09;
@@ -119,10 +118,8 @@
   .invoice-page::before {
     content: '';
     position: absolute;
-    top: -30px;
-    right: -30px;
-    width: 160px;
-    height: 160px;
+    top: -30px; right: -30px;
+    width: 160px; height: 160px;
     border: 1px solid var(--accent);
     border-radius: 50%;
     opacity: 0.06;
@@ -130,9 +127,7 @@
   }
 
   /* HEADER */
-  .invoice-header {
-    margin-bottom: 48px;
-  }
+  .invoice-header { margin-bottom: 48px; }
 
   .venture-name {
     font-family: 'Cormorant Garamond', serif;
@@ -152,8 +147,7 @@
   }
 
   .accent-rule {
-    width: 48px;
-    height: 1px;
+    width: 48px; height: 1px;
     background: var(--accent);
     margin: 14px 0 20px;
   }
@@ -166,7 +160,7 @@
     line-height: 2;
   }
 
-  /* META ROW */
+  /* META */
   .invoice-meta {
     display: flex;
     justify-content: space-between;
@@ -191,9 +185,7 @@
     margin-top: 2px;
   }
 
-  .invoice-dates {
-    text-align: right;
-  }
+  .invoice-dates { text-align: right; }
 
   .invoice-dates .meta-line {
     font-size: 9px;
@@ -203,9 +195,20 @@
     line-height: 2.2;
   }
 
-  .meta-line span {
-    color: var(--ink);
-    font-weight: 400;
+  .meta-line span { color: var(--ink); font-weight: 400; }
+
+  .status-select {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--gray);
+    outline: none;
+    cursor: pointer;
+    margin-top: 6px;
   }
 
   /* BILL TO */
@@ -215,9 +218,7 @@
     margin-bottom: 40px;
   }
 
-  .bill-block {
-    flex: 1;
-  }
+  .bill-block { flex: 1; }
 
   .bill-label {
     font-size: 9px;
@@ -227,7 +228,8 @@
     margin-bottom: 10px;
   }
 
-  .bill-block input, .bill-block textarea {
+  .bill-block input,
+  .bill-block textarea {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 12px;
@@ -239,22 +241,22 @@
     padding: 4px 0;
     outline: none;
     resize: none;
+    margin-bottom: 10px;
   }
 
-  .bill-block input:focus, .bill-block textarea:focus {
+  .bill-block input:focus,
+  .bill-block textarea:focus {
     border-bottom-color: var(--accent);
   }
 
-  /* LINE ITEMS TABLE */
+  /* LINE ITEMS */
   .items-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 32px;
   }
 
-  .items-table thead tr {
-    border-bottom: 1px solid var(--rule);
-  }
+  .items-table thead tr { border-bottom: 1px solid var(--rule); }
 
   .items-table th {
     font-size: 9px;
@@ -285,16 +287,9 @@
     width: 100%;
   }
 
-  .items-table td input:focus {
-    background: #F5F2ED;
-    padding: 2px 4px;
-  }
-
+  .items-table td input:focus { background: #F5F2ED; padding: 2px 4px; }
   .items-table td.right { text-align: right; }
-
-  .items-table td input.right {
-    text-align: right;
-  }
+  .items-table td input.right { text-align: right; }
 
   .col-desc { width: 45%; }
   .col-qty  { width: 12%; }
@@ -317,17 +312,13 @@
     margin-bottom: 48px;
   }
 
-  .totals-block {
-    width: 260px;
-  }
+  .totals-block { width: 260px; }
 
   .totals-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 6px 0;
-    font-size: 11px;
-    letter-spacing: 0.05em;
   }
 
   .totals-row .label {
@@ -337,10 +328,7 @@
     letter-spacing: 0.15em;
   }
 
-  .totals-row .value {
-    color: var(--ink);
-    font-weight: 400;
-  }
+  .totals-row .value { color: var(--ink); font-weight: 400; font-size: 11px; }
 
   .totals-row.tax-row input {
     font-family: 'Montserrat', sans-serif;
@@ -354,15 +342,9 @@
     outline: none;
   }
 
-  .totals-divider {
-    height: 1px;
-    background: var(--rule);
-    margin: 8px 0;
-  }
+  .totals-divider { height: 1px; background: var(--rule); margin: 8px 0; }
 
-  .totals-row.grand {
-    padding-top: 10px;
-  }
+  .totals-row.grand { padding-top: 10px; }
 
   .totals-row.grand .label {
     font-family: 'Cormorant Garamond', serif;
@@ -381,9 +363,7 @@
   }
 
   /* NOTES */
-  .notes-section {
-    margin-bottom: 48px;
-  }
+  .notes-section { margin-bottom: 48px; }
 
   .notes-label {
     font-size: 9px;
@@ -408,9 +388,7 @@
     line-height: 1.8;
   }
 
-  .notes-section textarea:focus {
-    border-color: var(--accent);
-  }
+  .notes-section textarea:focus { border-color: var(--accent); }
 
   /* FOOTER */
   .invoice-footer {
@@ -435,30 +413,10 @@
     color: var(--rule);
   }
 
-  /* STATUS BADGE */
-  .status-select {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border: 1px solid var(--rule);
-    background: transparent;
-    color: var(--gray);
-    outline: none;
-    cursor: pointer;
-  }
-
-  /* PRINT STYLES */
+  /* PRINT */
   @media print {
-    body {
-      background: white;
-      padding: 0;
-    }
-
-    .controls { display: none !important; }
-    .btn-remove { display: none !important; }
-    .no-print { display: none !important; }
+    body { background: white; padding: 0; }
+    .controls, .no-print { display: none !important; }
 
     .invoice-page {
       max-width: 100%;
@@ -470,27 +428,24 @@
     .bill-block input,
     .bill-block textarea,
     .items-table td input,
-    .notes-section textarea {
+    .notes-section textarea,
+    .totals-row.tax-row input {
       border: none !important;
       background: transparent !important;
     }
 
-    .totals-row.tax-row input {
-      border: none !important;
-    }
-
     .status-select { display: none; }
 
-    @page {
-      margin: 0.5in;
-      size: letter;
-    }
+    @page { margin: 0.5in; size: letter; }
   }
 </style>
 </head>
 <body>
 
-<!-- SCREEN CONTROLS -->
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- CONTROLS -->
 <div class="controls no-print">
   <select id="ventureSelect" onchange="setVenture(this.value)">
     <option value="sr">Sturm &amp; Róisín LLC</option>
@@ -499,7 +454,7 @@
     <option value="swq">Still Won't Quit</option>
   </select>
   <button class="btn btn-add" onclick="addLine()">+ Add Line Item</button>
-  <button class="btn btn-print" onclick="handlePrint()">&#x2399; Print / Save PDF</button>
+  <button class="btn btn-print" onclick="handlePrint()">&#x2399; Send &amp; Print</button>
 </div>
 
 <!-- INVOICE PAGE -->
@@ -524,7 +479,7 @@
     <div class="invoice-dates">
       <div class="meta-line">Date &nbsp;<span id="invoiceDate"></span></div>
       <div class="meta-line">Due &nbsp;<span id="invoiceDue"></span></div>
-      <div class="meta-line no-print" style="margin-top:6px;">
+      <div class="no-print">
         <select class="status-select" id="statusSelect">
           <option>Unpaid</option>
           <option>Paid</option>
@@ -539,8 +494,9 @@
   <div class="bill-section">
     <div class="bill-block">
       <div class="bill-label">Bill To</div>
-      <input type="text" id="clientName" placeholder="Client Name" /><br><br>
-      <textarea id="clientAddress" rows="3" placeholder="Address / Contact Info"></textarea>
+      <input type="text" id="clientName" placeholder="Client Name" />
+      <input type="email" id="clientEmail" placeholder="Client Email Address" />
+      <textarea id="clientAddress" rows="2" placeholder="Address / Contact Info"></textarea>
     </div>
     <div class="bill-block">
       <div class="bill-label">Project / Description</div>
@@ -559,9 +515,7 @@
         <th class="col-del no-print"></th>
       </tr>
     </thead>
-    <tbody id="lineBody">
-      <!-- rows injected by JS -->
-    </tbody>
+    <tbody id="lineBody"></tbody>
   </table>
 
   <!-- TOTALS -->
@@ -593,29 +547,30 @@
 
   <!-- FOOTER -->
   <div class="invoice-footer">
-    <div class="footer-left">Sturm &amp; Róisín LLC &nbsp;·&nbsp; Delight, AR</div>
+    <div class="footer-left" id="footerLeft">Sturm &amp; Róisín LLC &nbsp;·&nbsp; Delight, AR</div>
     <div class="footer-right">Thank you for your business.</div>
   </div>
 
 </div>
 
 <script>
-// ── VENTURE DATA ──────────────────────────────────────────────
+// ── VENTURES ──────────────────────────────────────────────────
 const ventures = {
-  sr:  { name: 'Sturm &amp; Róisín LLC',       tagline: 'Where Strength Meets Grace',               contact: 'Delight, Arkansas &nbsp;·&nbsp; sturmroisin@gmail.com' },
-  tdd: { name: 'Delight Digital Designs',       tagline: 'Where Small Towns Get Big Presence',        contact: 'Delight, Arkansas &nbsp;·&nbsp; delightdigitaldesigns.com' },
-  pub: { name: 'Sturm &amp; Róisín Publishing', tagline: 'Where Words Find Their Legacy',             contact: 'Delight, Arkansas &nbsp;·&nbsp; sturmroisin@gmail.com' },
-  swq: { name: "Still Won't Quit",              tagline: 'Real Experiences. Real Parents. No Easy Answers.', contact: 'Delight, Arkansas &nbsp;·&nbsp; sturmroisin@gmail.com' },
+  sr:  { name: 'Sturm &amp; Róisín LLC',       tagline: 'Where Strength Meets Grace',                      contact: 'Delight, Arkansas &nbsp;·&nbsp; sturmroisin@gmail.com',        footer: 'Sturm &amp; Róisín LLC &nbsp;·&nbsp; Delight, AR' },
+  tdd: { name: 'Delight Digital Designs',       tagline: 'Where Small Towns Get Big Presence',               contact: 'Delight, Arkansas &nbsp;·&nbsp; delightdigitaldesigns.com',     footer: 'Delight Digital Designs &nbsp;·&nbsp; Delight, AR' },
+  pub: { name: 'Sturm &amp; Róisín Publishing', tagline: 'Where Words Find Their Legacy',                    contact: 'Delight, Arkansas &nbsp;·&nbsp; sturmroisin@gmail.com',         footer: 'Sturm &amp; Róisín Publishing &nbsp;·&nbsp; Delight, AR' },
+  swq: { name: "Still Won't Quit",              tagline: 'Real Experiences. Real Parents. No Easy Answers.', contact: 'Delight, Arkansas &nbsp;·&nbsp; sturmroisin@gmail.com',         footer: "Still Won't Quit &nbsp;·&nbsp; Delight, AR" },
 };
 
 function setVenture(key) {
   const v = ventures[key];
-  document.getElementById('ventureName').innerHTML   = v.name;
+  document.getElementById('ventureName').innerHTML    = v.name;
   document.getElementById('ventureTagline').innerHTML = v.tagline;
   document.getElementById('ventureContact').innerHTML = v.contact;
+  document.getElementById('footerLeft').innerHTML     = v.footer;
 }
 
-// ── INVOICE NUMBER (localStorage) ────────────────────────────
+// ── INVOICE NUMBER ────────────────────────────────────────────
 function getNextInvoiceNumber() {
   const last = parseInt(localStorage.getItem('srLastInvoice') || '1000', 10);
   return last + 1;
@@ -635,7 +590,6 @@ const due   = new Date(today); due.setDate(due.getDate() + 30);
 document.getElementById('invoiceDate').textContent = formatDate(today);
 document.getElementById('invoiceDue').textContent  = formatDate(due);
 
-// ── INVOICE NUMBER DISPLAY ────────────────────────────────────
 let currentInvoiceNumber = getNextInvoiceNumber();
 document.getElementById('invoiceNumberDisplay').textContent = '#' + currentInvoiceNumber;
 
@@ -670,8 +624,8 @@ function recalc() {
   let subtotal = 0;
   rows.forEach(row => {
     const inputs = row.querySelectorAll('input');
-    const qty  = parseFloat(inputs[1]?.value) || 0;
-    const rate = parseFloat(inputs[2]?.value) || 0;
+    const qty   = parseFloat(inputs[1]?.value) || 0;
+    const rate  = parseFloat(inputs[2]?.value) || 0;
     const total = qty * rate;
     subtotal += total;
     const ltId = row.id.replace('line-', '');
@@ -679,57 +633,190 @@ function recalc() {
     if (ltEl) ltEl.textContent = '$' + total.toFixed(2);
   });
   const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
-  const tax = subtotal * (taxRate / 100);
-  const grand = subtotal + tax;
+  const tax     = subtotal * (taxRate / 100);
+  const grand   = subtotal + tax;
   document.getElementById('subtotalDisplay').textContent = '$' + subtotal.toFixed(2);
   document.getElementById('taxDisplay').textContent      = '$' + tax.toFixed(2);
   document.getElementById('grandDisplay').textContent    = '$' + grand.toFixed(2);
 }
 
-// ── PRINT + LOG ───────────────────────────────────────────────
-const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
-
-async function handlePrint() {
-  const venture  = document.getElementById('ventureSelect');
-  const ventureName = venture.options[venture.selectedIndex].text;
-  const client   = document.getElementById('clientName').value || 'Unknown Client';
-  const project  = document.getElementById('projectDesc').value || '';
-  const status   = document.getElementById('statusSelect').value;
-  const subtotal = document.getElementById('subtotalDisplay').textContent;
-  const tax      = document.getElementById('taxDisplay').textContent;
-  const grand    = document.getElementById('grandDisplay').textContent;
-  const taxRate  = document.getElementById('taxRate').value + '%';
-  const notes    = document.getElementById('notesField').value || '';
-
-  // Collect line items summary
+// ── COLLECT LINE ITEMS ────────────────────────────────────────
+function collectLines() {
   const rows = document.querySelectorAll('#lineBody tr');
-  let linesSummary = [];
+  const lines = [];
   rows.forEach(row => {
     const inputs = row.querySelectorAll('input');
     const desc  = inputs[0]?.value || '';
-    const qty   = inputs[1]?.value || '';
-    const rate  = inputs[2]?.value || '';
-    if (desc) linesSummary.push(`${desc} (${qty} × $${rate})`);
+    const qty   = inputs[1]?.value || '0';
+    const rate  = inputs[2]?.value || '0';
+    const total = (parseFloat(qty) * parseFloat(rate)).toFixed(2);
+    if (desc) lines.push({ desc, qty, rate, total });
   });
+  return lines;
+}
+
+// ── BUILD HTML EMAIL ──────────────────────────────────────────
+function buildEmailHTML(payload, lines) {
+  const lineRows = lines.map(l => `
+    <tr>
+      <td style="padding:10px 12px;border-bottom:1px solid #EAE6DF;font-family:Georgia,serif;font-size:13px;color:#1A1A18;">${l.desc}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid #EAE6DF;font-family:Georgia,serif;font-size:13px;color:#6B6B6B;text-align:center;">${l.qty}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid #EAE6DF;font-family:Georgia,serif;font-size:13px;color:#6B6B6B;text-align:right;">$${parseFloat(l.rate).toFixed(2)}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid #EAE6DF;font-family:Georgia,serif;font-size:13px;color:#1A1A18;text-align:right;">$${l.total}</td>
+    </tr>
+  `).join('');
+
+  return `
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#E8E4DE;font-family:Georgia,serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#E8E4DE;padding:40px 20px;">
+  <tr><td align="center">
+    <table width="620" cellpadding="0" cellspacing="0" style="background:#FAF8F5;padding:56px 64px;">
+
+      <!-- HEADER -->
+      <tr><td style="padding-bottom:8px;">
+        <div style="font-family:Georgia,serif;font-size:32px;font-weight:300;color:#1A1A18;letter-spacing:1px;">${payload.ventureName}</div>
+        <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#6B6B6B;margin-top:4px;">${payload.ventureTagline}</div>
+        <div style="width:48px;height:1px;background:#C9A84C;margin:14px 0 16px;"></div>
+        <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6B6B6B;">Delight, Arkansas &nbsp;·&nbsp; sturmroisin@gmail.com</div>
+      </td></tr>
+
+      <!-- DIVIDER -->
+      <tr><td style="padding:24px 0 20px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#6B6B6B;">Invoice</div>
+              <div style="font-family:Georgia,serif;font-size:26px;font-weight:300;color:#1A1A18;margin-top:2px;">#${payload.invoiceNumber}</div>
+            </td>
+            <td align="right" style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6B6B6B;line-height:2.2;">
+              Date &nbsp;<span style="color:#1A1A18;">${payload.date}</span><br>
+              Due &nbsp;<span style="color:#1A1A18;">${payload.due}</span>
+            </td>
+          </tr>
+        </table>
+        <div style="height:1px;background:#D4CFC8;margin-top:20px;"></div>
+      </td></tr>
+
+      <!-- BILL TO -->
+      <tr><td style="padding-bottom:28px;">
+        <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#6B6B6B;margin-bottom:8px;">Bill To</div>
+        <div style="font-family:Georgia,serif;font-size:14px;color:#1A1A18;">${payload.client}</div>
+        ${payload.address ? `<div style="font-family:Arial,sans-serif;font-size:11px;color:#6B6B6B;margin-top:4px;white-space:pre-line;">${payload.address}</div>` : ''}
+        ${payload.project ? `<div style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#6B6B6B;margin-top:10px;">Re: ${payload.project}</div>` : ''}
+      </td></tr>
+
+      <!-- LINE ITEMS -->
+      <tr><td>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr style="border-bottom:1px solid #D4CFC8;">
+            <th style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6B6B6B;font-weight:400;padding:0 12px 10px 12px;text-align:left;">Description</th>
+            <th style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6B6B6B;font-weight:400;padding:0 12px 10px;text-align:center;">Qty</th>
+            <th style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6B6B6B;font-weight:400;padding:0 12px 10px;text-align:right;">Rate</th>
+            <th style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6B6B6B;font-weight:400;padding:0 12px 10px;text-align:right;">Amount</th>
+          </tr>
+          ${lineRows}
+        </table>
+      </td></tr>
+
+      <!-- TOTALS -->
+      <tr><td style="padding-top:20px;">
+        <table width="260" align="right" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6B6B6B;padding:5px 0;">Subtotal</td>
+            <td style="font-family:Arial,sans-serif;font-size:11px;color:#1A1A18;text-align:right;padding:5px 0;">${payload.subtotal}</td>
+          </tr>
+          <tr>
+            <td style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6B6B6B;padding:5px 0;">Tax (${payload.taxRate})</td>
+            <td style="font-family:Arial,sans-serif;font-size:11px;color:#1A1A18;text-align:right;padding:5px 0;">${payload.tax}</td>
+          </tr>
+          <tr><td colspan="2" style="padding:6px 0;"><div style="height:1px;background:#D4CFC8;"></div></td></tr>
+          <tr>
+            <td style="font-family:Georgia,serif;font-size:14px;font-weight:bold;color:#1A1A18;padding:8px 0;letter-spacing:1px;text-transform:uppercase;">Total Due</td>
+            <td style="font-family:Georgia,serif;font-size:22px;color:#C9A84C;text-align:right;padding:8px 0;">${payload.grand}</td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- NOTES -->
+      ${payload.notes ? `
+      <tr><td style="padding-top:48px;">
+        <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#6B6B6B;margin-bottom:8px;">Notes</div>
+        <div style="font-family:Georgia,serif;font-size:12px;color:#1A1A18;line-height:1.8;border:1px solid #D4CFC8;padding:12px;white-space:pre-line;">${payload.notes}</div>
+      </td></tr>` : ''}
+
+      <!-- FOOTER -->
+      <tr><td style="padding-top:48px;border-top:1px solid #D4CFC8;margin-top:48px;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+          <tr>
+            <td style="font-family:Arial,sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#D4CFC8;">${payload.ventureName} &nbsp;·&nbsp; Delight, AR</td>
+            <td align="right" style="font-family:Georgia,serif;font-style:italic;font-size:11px;color:#D4CFC8;">Thank you for your business.</td>
+          </tr>
+        </table>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>
+</body>
+</html>`;
+}
+
+// ── TOAST ─────────────────────────────────────────────────────
+function showToast(msg, duration = 3000) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', duration);
+}
+
+// ── MAIN PRINT HANDLER ────────────────────────────────────────
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyipBVUSHBafJ1yEwpNt4Da8ipMt6uAHo153VhcbnDjUrjxZttLaTOMP8OA41ljGO9M/exec';
+
+async function handlePrint() {
+  const ventureEl    = document.getElementById('ventureSelect');
+  const ventureKey   = ventureEl.value;
+  const ventureData  = ventures[ventureKey];
+  const ventureName  = ventureEl.options[ventureEl.selectedIndex].text;
+  const ventureTagline = ventureData.tagline;
+
+  const client      = document.getElementById('clientName').value.trim()  || 'Unknown Client';
+  const clientEmail = document.getElementById('clientEmail').value.trim();
+  const address     = document.getElementById('clientAddress').value.trim();
+  const project     = document.getElementById('projectDesc').value.trim();
+  const status      = document.getElementById('statusSelect').value;
+  const subtotal    = document.getElementById('subtotalDisplay').textContent;
+  const tax         = document.getElementById('taxDisplay').textContent;
+  const grand       = document.getElementById('grandDisplay').textContent;
+  const taxRate     = document.getElementById('taxRate').value + '%';
+  const notes       = document.getElementById('notesField').value.trim();
+  const lines       = collectLines();
 
   const payload = {
     invoiceNumber: currentInvoiceNumber,
-    date: document.getElementById('invoiceDate').textContent,
-    due: document.getElementById('invoiceDue').textContent,
-    venture: ventureName,
+    date:     document.getElementById('invoiceDate').textContent,
+    due:      document.getElementById('invoiceDue').textContent,
+    venture:  ventureName,
+    ventureName,
+    ventureTagline,
     client,
+    clientEmail,
+    address,
     project,
-    lines: linesSummary.join(' | '),
+    lines:    lines.map(l => `${l.desc} (${l.qty} × $${l.rate})`).join(' | '),
     subtotal,
     taxRate,
     tax,
     grand,
     status,
-    notes
+    notes,
+    emailHTML: buildEmailHTML({ invoiceNumber: currentInvoiceNumber, date: document.getElementById('invoiceDate').textContent, due: document.getElementById('invoiceDue').textContent, ventureName, ventureTagline, client, address, project, subtotal, taxRate, tax, grand, notes }, lines)
   };
 
-  // Log to Google Sheets
   if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+    showToast('Sending invoice…');
     try {
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
@@ -737,19 +824,20 @@ async function handlePrint() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      // Save the invoice number now that it's logged
       saveInvoiceNumber(currentInvoiceNumber);
       currentInvoiceNumber++;
       document.getElementById('invoiceNumberDisplay').textContent = '#' + currentInvoiceNumber;
+      showToast(clientEmail ? `Invoice sent to ${clientEmail}` : 'Invoice logged.');
     } catch(e) {
-      console.warn('Sheet log failed:', e);
+      showToast('Log failed — check console.');
+      console.warn(e);
     }
   } else {
-    // Dev mode: just increment locally
     saveInvoiceNumber(currentInvoiceNumber);
+    showToast('Dev mode — Apps Script URL not set.');
   }
 
-  window.print();
+  setTimeout(() => window.print(), 800);
 }
 
 // ── INIT ──────────────────────────────────────────────────────
