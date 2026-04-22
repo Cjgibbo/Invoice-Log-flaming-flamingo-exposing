@@ -843,6 +843,22 @@ async function handlePrint() {
 // ── INIT ──────────────────────────────────────────────────────
 addLine('', 1, '');
 recalc();
+
+// Fetch invoice number from Sheet on load (cross-device sync)
+async function initInvoiceNumber() {
+  try {
+    const res  = await fetch(APPS_SCRIPT_URL + '?action=getNextInvoice');
+    const data = await res.json();
+    if (data && data.nextInvoice) {
+      currentInvoiceNumber = data.nextInvoice;
+      document.getElementById('invoiceNumberDisplay').textContent = '#' + currentInvoiceNumber;
+    }
+  } catch(e) {
+    console.warn('Could not fetch invoice number from Sheet — using local fallback.');
+  }
+}
+
+initInvoiceNumber();
 </script>
 </body>
 </html>
